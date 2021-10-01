@@ -13,7 +13,7 @@ namespace RulesEngine.Process
         internal readonly ISendEmailProcess _sendEmailProcess; 
         public MembershipProcess(ISendEmailProcess sendEmailProcess)
         {
-            _sendEmailProcess = sendEmailProcess;
+            _sendEmailProcess = sendEmailProcess ?? throw new ArgumentNullException("Send EMail Process Object cannot be null");
         }
         public async Task<ActivateMembershipResponse> ActivateMembership(ActivateMembershipRequest activateMembershipRequest)
         {

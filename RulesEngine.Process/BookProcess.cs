@@ -13,7 +13,7 @@ namespace RulesEngine.Process
         internal readonly IAgentPaymentProcess _agentPaymentProcess;
         public BookProcess(IAgentPaymentProcess agentPaymentProcess)
         {
-            _agentPaymentProcess = agentPaymentProcess;
+            _agentPaymentProcess = agentPaymentProcess ?? throw new ArgumentNullException("agentPaymentProcess Object cannot be null");
         }
         /// <summary>
         /// 
