@@ -47,14 +47,17 @@ namespace RulesEngine.Api
                     Description = "Service for managing Business Rules Engine",
                 });
             });
+            SetupDependencies(services);
+
+        }
+        protected internal virtual void SetupDependencies(IServiceCollection services)
+        {
             services.AddScoped<IMembershipProcess, MembershipProcess>();
             services.AddScoped<IProductProcess, ProductProcess>();
             services.AddScoped<IBookProcess, BookProcess>();
             services.AddScoped<ISendEmailProcess, SendEmailProcess>();
             services.AddScoped<IAgentPaymentProcess, AgentPaymentProcess>();
-
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public override void Configure(IApplicationBuilder app)
         {
